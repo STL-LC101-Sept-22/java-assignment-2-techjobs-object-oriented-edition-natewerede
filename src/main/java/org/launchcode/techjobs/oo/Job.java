@@ -1,6 +1,6 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Objects;
+//import java.util.Objects;
 
 public class Job {
 
@@ -22,4 +22,91 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
+
+    //public Job() {
+        //this();
+
+
+
+
+
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Employer getEmployer() {
+        return employer;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public PositionType getPositionType() {
+        return positionType;
+    }
+
+    public void setPositionType(PositionType positionType) {
+        this.positionType = positionType;
+    }
+
+    public CoreCompetency getCoreCompetency() {
+        return coreCompetency;
+    }
+
+    public void setCoreCompetency(CoreCompetency coreCompetency) {
+        this.coreCompetency = coreCompetency;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Job)) return false;
+
+        Job job = (Job) o;
+
+        if (getId() != job.getId()) return false;
+        if (!getName().equals(job.getName())) return false;
+        if (!getEmployer().equals(job.getEmployer())) return false;
+        if (!getLocation().equals(job.getLocation())) return false;
+        if (!getPositionType().equals(job.getPositionType())) return false;
+        return getCoreCompetency().equals(job.getCoreCompetency());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getEmployer().hashCode();
+        result = 31 * result + getLocation().hashCode();
+        result = 31 * result + getPositionType().hashCode();
+        result = 31 * result + getCoreCompetency().hashCode();
+        return result;
+    }
 }
